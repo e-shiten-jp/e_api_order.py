@@ -588,7 +588,9 @@ if len(my_sUrlRequest) > 0 and len(my_sUrlEvent) > 0 :  # ログインOKの場�
     # 注文取り消しは、現物、信用等の区別はない。
 
     # 上で出した注文を取り消す。
-    # 注文取り消し    引数：注文番号、営業日、口座属性クラス
+    # 注文取り消し
+    # 引数：注文番号、営業日、口座属性クラス
+    # 営業日、翌営業日は、マスターダウンロードで取得可能。大引けまでは「営業日」、１６時頃（日々変動あり）の翌日注文開始以降は「翌営業日」をセット。
     json_return = func_cancel_order(work_sOrderNumber, work_sEigyouDay, class_cust_property)
     # 戻り値の解説は、マニュアル「立花証券・ｅ支店・ＡＰＩ（ｖ〇）、REQUEST I/F、機能毎引数項目仕様」
     # p6/43 No.7 引数名:CLMKabuCancelOrder を参照してください。
